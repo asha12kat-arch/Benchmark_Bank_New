@@ -3,23 +3,29 @@ interface TransferData {
   amount: string;
   memo: string;
 }
+
 interface Props {
   navigate: (screen: string) => void;
   data: TransferData;
 }
+
 export default function TransferSuccessScreen({ navigate, data }: Props) {
   const { recipient, amount } = data;
   const now = new Date();
+
   const dateStr = now.toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
     year: "numeric",
   });
+
   const timeStr = now.toLocaleTimeString("en-US", {
     hour: "2-digit",
     minute: "2-digit",
   });
+
   const refNum = "BM" + Math.floor(Math.random() * 9000000 + 1000000);
+
   return (
     <div className="bg-gradient-to-b content-stretch flex flex-col from-[#0a1628] items-center justify-between relative size-full to-[#07111f] overflow-hidden p-[24px]">
       {/* bg glow center */}
@@ -69,7 +75,9 @@ export default function TransferSuccessScreen({ navigate, data }: Props) {
           </svg>
         </div>
       </div>
+
       <div className="flex-1" />
+
       {/* Pending icon */}
       <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full">
         <div className="bg-[rgba(139,26,43,0.1)] content-stretch flex flex-col items-center justify-center relative rounded-[40px] shrink-0 size-[100px]">
@@ -77,6 +85,7 @@ export default function TransferSuccessScreen({ navigate, data }: Props) {
             aria-hidden
             className="absolute border border-[rgba(139,26,43,0.2)] border-solid inset-0 pointer-events-none rounded-[40px]"
           />
+
           <svg
             fill="none"
             height="48"
@@ -105,16 +114,20 @@ export default function TransferSuccessScreen({ navigate, data }: Props) {
             />
           </svg>
         </div>
+
         <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0 w-full">
           <p className="font-['Young_Serif:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[28px] text-white">
             Transfer Pending
           </p>
+
           <p className="font-['Geist:Regular',sans-serif] font-normal relative shrink-0 text-[#94a3b8] text-[14px] text-center">
             {`Your transfer to ${recipient.name} has been submitted for processing.`}
           </p>
         </div>
       </div>
+
       <div className="flex-1" />
+
       {/* Receipt Card */}
       <div
         className="bg-[#0b1524] content-stretch flex flex-col gap-[12px] items-start p-[20px] relative rounded-[20px] shrink-0 w-full"
@@ -127,15 +140,19 @@ export default function TransferSuccessScreen({ navigate, data }: Props) {
           aria-hidden
           className="absolute border border-[rgba(255,255,255,0.08)] border-solid inset-0 pointer-events-none rounded-[20px]"
         />
+
         <div className="content-stretch flex items-center justify-between relative shrink-0 w-full">
           <p className="font-['Geist:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#94a3b8] text-[13px]">
             Amount
           </p>
+
           <p className="font-['Young_Serif:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[18px] text-white">
             ${parseFloat(amount).toFixed(2)}
           </p>
         </div>
+
         <div className="h-px relative shrink-0 w-full bg-[rgba(255,255,255,0.08)]" />
+
         {[
           {
             label: "From",
@@ -155,6 +172,7 @@ export default function TransferSuccessScreen({ navigate, data }: Props) {
             <p className="font-['Geist:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#94a3b8] text-[13px]">
               {label}
             </p>
+
             <p
               className={`font-['Geist:SemiBold',sans-serif] font-semibold leading-[normal] relative shrink-0 text-[13px] ${
                 label === "Status"
@@ -167,7 +185,9 @@ export default function TransferSuccessScreen({ navigate, data }: Props) {
           </div>
         ))}
       </div>
+
       <div className="flex-1" />
+
       {/* Actions */}
       <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
         <button
@@ -181,6 +201,7 @@ export default function TransferSuccessScreen({ navigate, data }: Props) {
             Return to Dashboard
           </p>
         </button>
+
         <button
           onClick={() => navigate("transfer")}
           className="bg-transparent content-stretch flex h-[52px] items-center justify-center relative rounded-[14px] shrink-0 w-full border-[1.5px] border-[rgba(255,255,255,0.12)] border-solid cursor-pointer"
@@ -193,5 +214,3 @@ export default function TransferSuccessScreen({ navigate, data }: Props) {
     </div>
   );
 }
-
-The next step after this is Transaction History, where we can check for any remaining old balance/account-name references.
