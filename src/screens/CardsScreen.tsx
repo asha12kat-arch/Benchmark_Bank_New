@@ -64,7 +64,7 @@ export default function CardsScreen({ navigate }: Props) {
                   </p>
 
                   <p className="font-['Geist:SemiBold',sans-serif] font-semibold leading-[normal] relative shrink-0 text-[13px] text-white">
-                    MICHAEL DOUGLAS SKINNER
+                    ANTHONY FRANKLIN & THERESA PRINCESS
                   </p>
                 </div>
 
