@@ -11,7 +11,7 @@ interface Props {
   data: TransferData;
 }
 
-const AVAILABLE_BALANCE = 80000000;
+const AVAILABLE_BALANCE = 70000;
 
 export default function TransferReviewScreen({ navigate, data }: Props) {
   const { recipient, amount, memo } = data;
@@ -175,7 +175,7 @@ export default function TransferReviewScreen({ navigate, data }: Props) {
             <div className="h-px relative shrink-0 w-full bg-[rgba(255,255,255,0.12)]" />
 
             {[
-              { label: "From", value: "Winnings" },
+              { label: "From", value: "Anthony Franklin & Theresa Princess" },
               {
                 label: "To",
                 value: `${recipient.name} (${recipient.account})`,
@@ -222,7 +222,7 @@ export default function TransferReviewScreen({ navigate, data }: Props) {
             >
               <p className="font-['Geist:Medium',sans-serif] text-[13px] text-[#f87171]">
                 Insufficient funds. This transfer exceeds the
-                $80,000,000.00 available balance and cannot be completed.
+                $70,000.00 available balance and cannot be completed.
               </p>
             </div>
           )}
@@ -237,7 +237,7 @@ export default function TransferReviewScreen({ navigate, data }: Props) {
               }}
             >
               <p className="font-['Geist:Medium',sans-serif] text-[13px] text-[#f87171]">
-              An activation fee of $25,000 is required to be paid before the transfer can be successfully processed and completed.
+                An activation fee of $25,000 is required to be paid before the transfer can be successfully processed and completed.
               </p>
             </div>
           )}
