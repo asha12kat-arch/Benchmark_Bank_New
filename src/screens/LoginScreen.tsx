@@ -60,7 +60,8 @@ export default function LoginScreen({ navigate }: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const USERNAME = "Michealdouglas8";
+  const USERNAME = "anthonyfranklin1";
+  const PASSWORD = "Theresa112@";
 
   return (
     <div className="bg-gradient-to-b content-stretch flex flex-col from-[#07111f] items-start overflow-hidden relative size-full to-[#0a1628]">
@@ -220,7 +221,7 @@ export default function LoginScreen({ navigate }: Props) {
                   return;
                 }
 
-                if (username !== USERNAME) {
+                if (username !== USERNAME || password !== PASSWORD) {
                   setError("Invalid username or password.");
                   return;
                 }
